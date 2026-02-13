@@ -1,0 +1,193 @@
+/* style.css */
+
+:root {
+    --bg-start: #f8e6eb;
+    --bg-end: #fbeef2;
+    --card-bg: rgba(255, 255, 255, 0.82);
+    --text-color: #4a2730;
+    --muted-text: #6f5c63;
+    --accent: #e05c79;
+    --accent-hover: #c94a67;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Playfair Display', Georgia, serif;
+    text-align: center;
+    color: var(--text-color);
+    background:
+        radial-gradient(1200px circle at 15% 20%, #ffe6ed 0%, transparent 56%),
+        radial-gradient(1000px circle at 85% 90%, #ffe1ea 0%, transparent 50%),
+        linear-gradient(160deg, var(--bg-start), var(--bg-end));
+}
+
+#container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+#love-message {
+    display: none;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin-bottom: 10px;
+    color: var(--accent);
+    text-shadow: 0 3px 18px rgba(224, 92, 121, 0.22);
+}
+
+#image-container {
+    width: min(760px, 95vw);
+    min-height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0 24px;
+}
+
+#image-container img {
+    width: min(360px, 78vw);
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 14px 32px rgba(88, 42, 55, 0.2);
+}
+
+#image-container.after-state img {
+    width: 100%;
+}
+
+.before-image {
+    object-fit: cover;
+}
+
+.after-gallery {
+    width: min(700px, 92vw);
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 16px;
+    padding: 14px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 14px 36px rgba(74, 39, 48, 0.15);
+}
+
+.after-media {
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.cat-heart-media {
+    background: rgba(255, 245, 248, 0.9);
+}
+
+.after-click-media {
+    border: 1px solid rgba(119, 88, 97, 0.22);
+}
+
+#text-container {
+    width: min(560px, 92vw);
+    padding: 32px 24px;
+    border-radius: 24px;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 16px 34px rgba(74, 39, 48, 0.12);
+}
+
+#question {
+    font-size: clamp(2rem, 4.2vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+}
+
+#options {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 26px;
+    min-width: 120px;
+    border: none;
+    border-radius: 999px;
+    font-size: 1.15rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#yes-button {
+    background-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(224, 92, 121, 0.28);
+}
+
+#yes-button:hover {
+    background-color: var(--accent-hover);
+}
+
+#no-button {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--muted-text);
+    border: 1px solid rgba(119, 88, 97, 0.25);
+    box-shadow: 0 6px 16px rgba(74, 39, 48, 0.14);
+}
+
+#no-button.escape {
+    position: fixed;
+    z-index: 1000;
+    transition: left 0.2s ease, top 0.2s ease;
+}
+
+@media (max-width: 600px) {
+    #text-container {
+        padding: 24px 16px;
+    }
+
+    #options {
+        margin-top: 20px;
+    }
+
+    button {
+        min-width: 104px;
+        font-size: 1rem;
+        padding: 10px 18px;
+    }
+
+    #image-container {
+        min-height: 180px;
+    }
+
+    .after-gallery {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .after-media {
+        min-height: 150px;
+    }
+}
