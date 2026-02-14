@@ -6,8 +6,17 @@ var noButtonLabels = ['No', 'You sure?', 'Really sure?', 'Think again?', 'Please
 // Function to handle button click events
 function selectOption(option) {
     if (option === 'yes') {
-        document.getElementById('question').style.display = 'none';
-        document.getElementById('love-message').style.display = 'block';
+        var question = document.getElementById('question');
+        var loveMessage = document.getElementById('love-message');
+
+        if (question) {
+            question.style.display = 'none';
+        }
+
+        if (loveMessage) {
+            loveMessage.style.display = 'block';
+        }
+
         displayCatHeart();
     } else if (option === 'no') {
         handleNoInteraction();
@@ -67,7 +76,7 @@ function displayCat() {
     imageContainer.classList.remove('after-state');
 
     var beforeImage = new Image();
-    beforeImage.src = 'before_click.jpg';
+    beforeImage.src = 'before_click.JPG';
     beforeImage.alt = 'Before click photo';
     beforeImage.className = 'before-image';
 
